@@ -6,8 +6,9 @@ import os
 from lex import lexconfig
 
 PIPELINE = [
-    ('collect_entry_frequencies', 1),
-    ('collect_all_frequencies', 1),
+    ('collect_entry_frequencies', 0),
+    ('collect_all_frequencies', 0),
+    ('build_csv', 1),
     # analysis of the frequency output
     ('analyse_frequency_data', 0),
     ('compare_with_oec', 0),
@@ -15,8 +16,8 @@ PIPELINE = [
     ('rank_entries', 0),
     ('ranksample', 0),
     # currency
-    ('raw_currency_data', 1),
-    ('estimate_currency', 1),
+    ('raw_currency_data', 0),
+    ('estimate_currency', 0),
 ]
 
 OED_ROOT = lexconfig.OED_DIR
@@ -27,6 +28,7 @@ FULL_FREQUENCY_DIR = os.path.join(PROJECT_ROOT, 'full_frequency_data')
 ANALYSIS_DIR = os.path.join(PROJECT_ROOT, 'analysis')
 RANKING_FILE = os.path.join(ANALYSIS_DIR, 'ranking.csv')
 CURRENCY_DIR = os.path.join(PROJECT_ROOT, 'currency')
+CSV_FILE = os.path.join(PROJECT_ROOT, 'oed_frequencies.csv')
 OEC_FREQUENCY_FILE = os.path.join(lexconfig.GEL_DIR, 'resources', 'oec',
                                   'oec_lempos_frequencies.txt')
 

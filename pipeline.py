@@ -37,6 +37,12 @@ def collect_all_frequencies():
     fc.process()
 
 
+def build_csv():
+    from processors.xmltocsv import xml_to_csv
+    xml_to_csv(frequencyconfig.FULL_FREQUENCY_DIR,
+               frequencyconfig.CSV_FILE)
+
+
 def analyse_frequency_data():
     from processors.frequencyanalysis import FrequencyAnalysis
     fa = FrequencyAnalysis(in_dir=frequencyconfig.FREQUENCY_DIR,
